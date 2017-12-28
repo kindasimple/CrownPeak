@@ -7,6 +7,5 @@ if (require.main === module) {
     let spiral = generateSpiral(maxValue)
     let digits = maxValue.toString().length + 1
     let output = printSpiral(spiral, digits)
-    console.log(output)
 }
 

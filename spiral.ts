@@ -98,9 +98,6 @@ export function fillLayer(spiral: number[][],
     return result
 }
 
-
-enum SegmentType { RightDown = 1, BottomToLeft, LeftUp, TopToRight }
-
 function getLineDefinition(type: SegmentType, layerIndex: number) {
     var [lowerBound, upperBound] = getRange(layerIndex)
     var lowerLayerIndexUpperBound = layerIndex - 1
