@@ -4,11 +4,11 @@
   "description": "spiral ========",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/index.js",
     "build": "./node_modules/.bin/tsc --target es2017",
     "test": "jest",
-    "clean": "rm *.js; rm *.js.map; rm -rf ./node_modules",
-    "docs": "typedoc --excludeExternals --includeDeclarations --out ./doc/ *.ts ./types/*.ts"
+    "clean": "rm -rf docs/; rm src/*.js; rm src/*.js.map; rm -rf ./node_modules",
+    "docs": "typedoc --excludeExternals --includeDeclarations --out ./doc/ src/*.ts ./src/types/*.ts"
   },
   "author": "Evan White",
   "license": "ISC",

@@ -11,6 +11,4 @@ if (require.main === module) {
         let output = printSpiral(spiral, digits)
         console.log(output)
     }
-
 }
-

@@ -3,14 +3,21 @@ import {
     countSpiralItems,
     layerCoverageRatio,
     seriesSum,
+    doStuff,
 } from '../utils'
 import {spiral} from '../mocks'
-
 
 describe("Spiral Properties", () => {
     it("Counts layers in a series", () => {
         const targetValue = 8
         const actual = 1
+
+        expect(countLayers(targetValue)).toEqual(actual)
+    })
+
+    it("Counts layers in a series", () => {
+        const targetValue = 9
+        const actual = 2
 
         expect(countLayers(targetValue)).toEqual(actual)
     })
@@ -30,5 +37,11 @@ describe("Spiral Properties", () => {
         expect(seriesSum(3)).toBe(6)
         expect(seriesSum(2)).toBe(3)
         expect(seriesSum(1)).toBe(1)
+    })
+
+    it("Calculates coverage ratio", () => {
+        expect(layerCoverageRatio(8)).toBe(1)
+        expect(layerCoverageRatio(9)).toBeLessThan(.25)
+        expect(layerCoverageRatio(13)).toBeLessThan(.5)
     })
 })

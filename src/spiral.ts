@@ -1,6 +1,6 @@
 // spiral.ts
 
-import './types'
+import { SegmentType, IResultItem } from './types'
 import { getRange } from './utils'
 import {
     initializeMatrix,
@@ -98,7 +98,7 @@ export function fillLayer(spiral: number[][],
     return result
 }
 
-function getLineDefinition(type: SegmentType, layerIndex: number) {
+export function getLineDefinition(type: SegmentType, layerIndex: number) {
     var [lowerBound, upperBound] = getRange(layerIndex)
     var lowerLayerIndexUpperBound = layerIndex - 1
     if (lowerLayerIndexUpperBound < 0) { lowerLayerIndexUpperBound = 0 }
@@ -108,7 +108,7 @@ function getLineDefinition(type: SegmentType, layerIndex: number) {
 
     switch (type) {
         case SegmentType.RightDown:
-            position = [-lowerLayerIndexUpperBound, upperBound] //top right
+            position = [0-lowerLayerIndexUpperBound, upperBound] //top right
             transform = [1, 0]
             break
         case SegmentType.BottomToLeft:
@@ -116,11 +116,11 @@ function getLineDefinition(type: SegmentType, layerIndex: number) {
             transform = [0, -1]
             break
         case SegmentType.LeftUp:
-            position = [lowerLayerIndexUpperBound, -upperBound]
+            position = [lowerLayerIndexUpperBound, 0-upperBound]
             transform = [-1, 0]
             break
         case SegmentType.TopToRight:
-            position = [-upperBound, -lowerLayerIndexUpperBound]
+            position = [0-upperBound, 0-lowerLayerIndexUpperBound]
             transform = [0, 1]
             break
     }

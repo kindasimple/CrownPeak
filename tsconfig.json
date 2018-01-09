@@ -3,6 +3,7 @@
         "target": "es2017",
         "module": "commonjs",
         "sourceMap": true,
-        "typeRoots" : ["./types", "./node_modules/@types/"]
+        "noEmitOnError": true,
+        "typeRoots" : ["./src/types", "./node_modules/@types/"]
     }
 }

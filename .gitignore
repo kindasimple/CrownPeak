@@ -4,3 +4,4 @@ docs/
 **/*.js
 **/*.js.map
 node_modules
+npm-debug.log

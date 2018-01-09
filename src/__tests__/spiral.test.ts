@@ -1,5 +1,8 @@
+import {SegmentType} from '../types'
+
 import { 
     generateSpiral, 
+    getLineDefinition,
     drawLine
 } from '../spiral'
 import {spiral} from '../mocks'
@@ -32,9 +35,22 @@ describe("generates a spiral", () => {
         expect(spiral).toEqual(expected)
     })
 
+    it("gets line definitions", () => {
+        expect(getLineDefinition(SegmentType.RightDown, 1)).toEqual({ position: [0,1], transform: [1,0]})
+        expect(getLineDefinition(SegmentType.BottomToLeft, 1)).toEqual({ position: [1,0], transform: [0,-1]})
+        expect(getLineDefinition(SegmentType.LeftUp, 1)).toEqual({ position: [0,-1], transform: [-1,0]})
+        expect(getLineDefinition(SegmentType.TopToRight, 1)).toEqual({ position: [-1,0], transform: [0,1]})
+    })
+
     it("makes a three layer spiral", () => {
         const input = 8
         const expected = spiral["8"]
+        expect(generateSpiral(input)).toEqual(expected)
+    })
+
+    it("makes a skinny spiral", () => {
+        const input = 9
+        const expected = spiral["9"]
         expect(generateSpiral(input)).toEqual(expected)
     })
 })
